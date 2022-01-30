@@ -53,7 +53,9 @@ const gdmOptions = {
   async function changeCapturedStreamToRecordedMedia(stream){
     let recordedObj =[];
     //keeping track recording stream for usage
-      mediaRecorder = await new MediaRecorder(stream);
+      mediaRecorder = await new MediaRecorder(stream,{
+  mimeType: 'video/webm;codecs=VP8',
+});
       mediaRecorder.start();
      
       mediaRecorder.ondataavailable = (e)=>{
